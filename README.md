@@ -43,3 +43,39 @@ Designed to manage multiple staff roles, streamline check-in/check-out, track ro
 1. Clone the repository:  
 ```bash
 git clone https://github.com/canonbas03/hotel-management-system.git
+```
+2. Open the solution in Visual Studio.
+
+3. Configure the SQL Server connection in appsettings.json or Web.config.
+
+4. Run Entity Framework migrations to create and seed the database:
+
+5. Update-Database
+
+6. Start the application using IIS Express or your local web server.
+
+7. Navigate to http://localhost:port/ in your browser.
+
+---
+## Screenshots
+
+Landing Page:
+![Landing Page](https://github.com/user-attachments/assets/9edc2f07-9985-47a7-91cf-3029f75ee6c1)
+
+
+Reception Module:
+<img width="1920" height="1200" alt="Image" src="https://github.com/user-attachments/assets/c8acb254-c923-4bf2-b383-c7d129aa7660" />
+
+   <img width="1920" height="1095" alt="Image" src="https://github.com/user-attachments/assets/0657174b-5adc-4f66-8993-f5903148250d" />
+
+Guest Module:
+ <img width="548" height="920" alt="Image" src="https://github.com/user-attachments/assets/c182aff1-3ee8-4d6e-abee-776a439193e1" />
+
+Bar Orders Module:
+<img width="1920" height="1102" alt="Image" src="https://github.com/user-attachments/assets/ffb29644-6aed-48b0-b602-4a2c61a67f69" />
+
+Administration Module:
+
+  
+
+   
