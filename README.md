@@ -66,10 +66,13 @@ Landing Page:
 Reception Module:
 <img width="1920" height="1200" alt="Image" src="https://github.com/user-attachments/assets/c8acb254-c923-4bf2-b383-c7d129aa7660" />
 
-   <img width="1920" height="1095" alt="Image" src="https://github.com/user-attachments/assets/0657174b-5adc-4f66-8993-f5903148250d" />
+<img width="1920" height="1095" alt="Image" src="https://github.com/user-attachments/assets/0657174b-5adc-4f66-8993-f5903148250d" />
+
+
 
 Guest Module:
- <img width="548" height="920" alt="Image" src="https://github.com/user-attachments/assets/c182aff1-3ee8-4d6e-abee-776a439193e1" />
+
+<img width="548" height="920" alt="Image" src="https://github.com/user-attachments/assets/c182aff1-3ee8-4d6e-abee-776a439193e1" />
 
 Bar Orders Module:
 <img width="1920" height="1102" alt="Image" src="https://github.com/user-attachments/assets/ffb29644-6aed-48b0-b602-4a2c61a67f69" />
