@@ -45,11 +45,9 @@ public class GuestRoomController : Controller
         room.IsDND = !room.IsDND;
         await _context.SaveChangesAsync();
 
-        //await _hub.Clients.All.SendAsync("ReceiveDndUpdate", room.Id, room.IsDND);
         await _hub.Clients.All.SendAsync("DndChanged", room.Id, room.IsDND);
 
         return Content(room.IsDND ? "true" : "false");
 
-        //return RedirectToAction(nameof(Room), new { roomId });
     }
 }

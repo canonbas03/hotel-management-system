@@ -43,7 +43,6 @@ public class RoomIssuesController : Controller
                 .FirstOrDefaultAsync();
         }
 
-        // Only show room dropdown if roomId is missing
         if (!roomId.HasValue)
         {
             ViewBag.Rooms = await _context.Rooms
@@ -99,7 +98,6 @@ public class RoomIssuesController : Controller
 
         _context.RoomIssues.Add(issue);
 
-        // Optional: make Maintenance also set room status immediately
         if (vm.Category == IssueCategory.Maintenance && vm.RoomId.HasValue)
         {
             var room = await _context.Rooms.FindAsync(vm.RoomId.Value);
@@ -107,7 +105,6 @@ public class RoomIssuesController : Controller
                 room.Status = RoomStatus.Maintenance;
         }
 
-        // Optional: housekeeping issues mark NeedsDailyCleaning
         if (vm.Category == IssueCategory.Housekeeping && vm.RoomId.HasValue)
         {
             var room = await _context.Rooms.FindAsync(vm.RoomId.Value);
@@ -155,8 +152,6 @@ public class RoomIssuesController : Controller
         issue.Status = IssueStatus.Resolved;
         issue.ResolvedAt = DateTime.Now;
 
-        // Optional: if it was Maintenance, restore room to Available/Cleaning logic (your choice)
-        // Example: only clear maintenance if no other open maintenance issues remain
         if (issue.Category == IssueCategory.Maintenance && issue.RoomId.HasValue)
         {
             bool hasOtherOpen = await _context.RoomIssues.AnyAsync(i =>
@@ -166,16 +161,15 @@ public class RoomIssuesController : Controller
                 i.Id != issue.Id);
 
             if (!hasOtherOpen && issue.Room != null)
-                issue.Room.Status = RoomStatus.Available; // or Cleaning, depending on your workflow
+                issue.Room.Status = RoomStatus.Available;
         }
 
         await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index)); // if you add Index page for issues
+        return RedirectToAction(nameof(Index)); 
     }
 
     private static List<SelectListItem> GetTypeOptions(IssueCategory category)
     {
-        // You can move this to a service later
         return category switch
         {
             IssueCategory.Maintenance => new()

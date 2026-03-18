@@ -15,7 +15,7 @@ namespace HotelMVCPrototype.Models
 
 
         [ForeignKey("RoomId")]
-        [ValidateNever]  // <- prevents ModelState from trying to validate this property
+        [ValidateNever] 
         public Room Room { get; set; }
 
 

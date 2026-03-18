@@ -40,7 +40,6 @@ public class AdminController : Controller
         return View(model);
     }
 
-    // GET: Show roles for a specific user
     public async Task<IActionResult> EditRoles(string id)
     {
         var user = await _userManager.FindByIdAsync(id);
@@ -72,16 +71,13 @@ public class AdminController : Controller
         var userRoles = await _userManager.GetRolesAsync(user);
         var selectedRoles = model.Roles.Where(r => r.IsSelected).Select(r => r.RoleName);
 
-        // Add new roles
         await _userManager.AddToRolesAsync(user, selectedRoles.Except(userRoles));
 
-        // Remove unchecked roles
         await _userManager.RemoveFromRolesAsync(user, userRoles.Except(selectedRoles));
 
         return RedirectToAction("Index");
     }
 
-    // GET: Show the create staff form
     public IActionResult CreateStaff()
     {
         var model = new CreateStaffUserViewModel
@@ -91,7 +87,6 @@ public class AdminController : Controller
         return View(model);
     }
 
-    // POST: Handle form submission
     [HttpPost]
     public async Task<IActionResult> CreateStaff(CreateStaffUserViewModel model)
     {
@@ -117,7 +112,6 @@ public class AdminController : Controller
             return View(model);
         }
 
-        // Assign the selected role
         await _userManager.AddToRoleAsync(user, model.SelectedRole);
 
         return RedirectToAction("Index");
@@ -127,7 +121,6 @@ public class AdminController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult SetActiveRole(string role, string? returnUrl = null)
     {
-        // allow only known roles
         var allowed = new[] { "Reception", "Housekeeping", "Bar", "Maintenance", "Security", "Admin" };
         if (!allowed.Contains(role)) return BadRequest();
 

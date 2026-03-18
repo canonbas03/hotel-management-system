@@ -22,7 +22,6 @@ namespace HotelMVCPrototype.Controllers
             _audit = audit;
         }
 
-        // GET: GuestAssignments
         public async Task<IActionResult> Index()
         {
             var assignments = await _context.GuestAssignments
@@ -42,9 +41,6 @@ namespace HotelMVCPrototype.Controllers
         }
 
 
-        // GET: GuestAssignments/Create
-
-        // GET: GuestAssignments/Create
         public IActionResult Create(int roomId)
         {
             var model = new CreateStayViewModel
@@ -53,7 +49,7 @@ namespace HotelMVCPrototype.Controllers
                 CheckInDate = DateTime.Today,
                 Guests = new List<GuestInputViewModel>
                     {
-                        new GuestInputViewModel(), // at least 1 guest
+                        new GuestInputViewModel(),
                     }
             };
 
@@ -137,7 +133,6 @@ namespace HotelMVCPrototype.Controllers
 
 
 
-        // GET: GuestAssignments/CheckOut/5
         public async Task<IActionResult> CheckOut(int? id)
         {
             if (id == null) return NotFound();

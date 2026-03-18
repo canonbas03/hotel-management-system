@@ -5,20 +5,19 @@
     public DateTime CreatedAt { get; set; } = DateTime.Now;
 
     // Who
-    public string? UserId { get; set; }          // Identity user id
-    public string? UserName { get; set; }        // snapshot (User.Identity.Name)
-    public string? Role { get; set; }            // optional snapshot
+    public string? UserId { get; set; }  
+    public string? UserName { get; set; }      
+    public string? Role { get; set; }           
 
     // What
-    public string Action { get; set; } = null!;  // "OrderCompleted", "GuestDeparted", etc.
-    public string EntityType { get; set; } = null!; // "Order", "Room", "ServiceRequest"
+    public string Action { get; set; } = null!; 
+    public string EntityType { get; set; } = null!; 
     public int? EntityId { get; set; }
 
     // Extra info
-    public string? Description { get; set; }     // human-friendly message
-    public string? DataJson { get; set; }        // optional details (before/after)
+    public string? Description { get; set; }     
+    public string? DataJson { get; set; }       
 
-    // Context (super useful)
     public string? IpAddress { get; set; }
     public string? UserAgent { get; set; }
 }

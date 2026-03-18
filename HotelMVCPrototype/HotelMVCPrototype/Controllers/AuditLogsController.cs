@@ -28,23 +28,21 @@ public class AuditLogsController : Controller
             .AsNoTracking()
             .Where(l => l.CreatedAt >= from);
 
-        // ✅ partial
+
         if (!string.IsNullOrWhiteSpace(user))
             q = q.Where(l => l.UserName != null && l.UserName.Contains(user));
 
-        // ✅ partial
+
         if (!string.IsNullOrWhiteSpace(auditAction))
             q = q.Where(l => l.Action.Contains(auditAction));
 
-        // ✅ partial
+
         if (!string.IsNullOrWhiteSpace(entityType))
             q = q.Where(l => l.EntityType.Contains(entityType));
 
-        // same as before
         if (entityId.HasValue)
             q = q.Where(l => l.EntityId == entityId);
 
-        // ✅ exact room match (Number -> Room.Id -> filter logs)
         if (!string.IsNullOrWhiteSpace(room))
         {
             if (int.TryParse(room, out var roomNumber))
@@ -64,7 +62,6 @@ public class AuditLogsController : Controller
         }
 
 
-        // ✅ optional partial description filter
         if (!string.IsNullOrWhiteSpace(description))
             q = q.Where(l => l.Description != null && l.Description.Contains(description));
 

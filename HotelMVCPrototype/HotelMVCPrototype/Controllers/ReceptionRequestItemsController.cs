@@ -44,7 +44,6 @@ public class ReceptionRequestItemsController : Controller
     }
 
 
-    // ✏️ EDIT (GET)
     [HttpGet]
     public async Task<IActionResult> Edit(int id)
     {
@@ -57,7 +56,6 @@ public class ReceptionRequestItemsController : Controller
             IsActive = item.IsActive,
             MaxQuantity = item.MaxQuantity
 
-            // Image is NOT set (file inputs can't be prefilled)
         };
 
         ViewBag.ItemId = item.Id;
@@ -65,7 +63,6 @@ public class ReceptionRequestItemsController : Controller
 
         return View(model);
     }
-    // ✏️ EDIT (POST)
     [HttpPost]
     public async Task<IActionResult> Edit(int id, CreateRequestItemViewModel model)
     {
@@ -87,7 +84,6 @@ public class ReceptionRequestItemsController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    // 🗑 DELETE (POST)
     [HttpPost]
     public async Task<IActionResult> Delete(int id)
     {
@@ -100,7 +96,6 @@ public class ReceptionRequestItemsController : Controller
         return RedirectToAction(nameof(Index));
     }
 
-    // 📁 Image helper
     private async Task<string> SaveImage(IFormFile image)
     {
         var fileName = Guid.NewGuid() + Path.GetExtension(image.FileName);

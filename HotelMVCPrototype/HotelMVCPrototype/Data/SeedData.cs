@@ -28,11 +28,9 @@ namespace HotelMVCPrototype.Data
             string adminEmail = "admin@hotel.com";
             string password = "Admin123!";
 
-            // ensure Admin role exists
             if (!await roleManager.RoleExistsAsync("Admin"))
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
 
-            // check if admin user exists
             var admin = await userManager.FindByEmailAsync(adminEmail);
 
             if (admin == null)
@@ -41,7 +39,7 @@ namespace HotelMVCPrototype.Data
                 {
                     UserName = adminEmail,
                     Email = adminEmail,
-                    EmailConfirmed = true // ✅ important for login
+                    EmailConfirmed = true
                 };
 
                 var result = await userManager.CreateAsync(admin, password);

@@ -11,14 +11,12 @@ public class CreateIssueReportViewModel
     public IssueCategory Category { get; set; }
 
     [Required]
-    public string TypeKey { get; set; } = ""; // selected option key (e.g. "WeirdNoise")
+    public string TypeKey { get; set; } = ""; 
 
     public string? Description { get; set; }
 
-    // for room dropdown when no roomId in URL
     public List<SelectListItem> Rooms { get; set; } = new();
 
-    // for dynamic type dropdown (filled by JS, or you can pre-fill based on Category)
     public List<SelectListItem> Types { get; set; } = new();
 }
 

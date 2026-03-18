@@ -20,19 +20,16 @@ namespace HotelMVCPrototype.Controllers
         {
             if (User.Identity?.IsAuthenticated == true)
             {
-                // Get the first role of the logged-in user
                 var user = await _userManager.GetUserAsync(User);
                 var roles = await _userManager.GetRolesAsync(user);
                 var roleName = roles.FirstOrDefault();
 
                 if (!string.IsNullOrEmpty(roleName))
                 {
-                    // Redirect to role controller index
                     return RedirectToAction("Index", roleName);
                 }
             }
 
-            // Default for non-logged-in users
             return View();
         }
 

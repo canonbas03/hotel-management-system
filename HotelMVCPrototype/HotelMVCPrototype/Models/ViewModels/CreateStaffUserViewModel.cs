@@ -17,7 +17,6 @@ namespace HotelMVCPrototype.Models.ViewModels
         [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
 
-        // Roles the admin can assign
         [Required]
         public string SelectedRole { get; set; }
         public List<string> Roles { get; set; } = new();

@@ -55,7 +55,6 @@
         btn.disabled = true;
         btn.textContent = "Completing...";
 
-        // Mark request as completed
         const response = await fetch(`/ReceptionRequests/Complete?id=${id}`, {
             method: "POST"
         });
@@ -66,7 +65,6 @@
             return;
         }
 
-        // Reload the entire card partial
         const partial = await fetch('/ReceptionRequests/PartialRequests');
         const html = await partial.text();
 

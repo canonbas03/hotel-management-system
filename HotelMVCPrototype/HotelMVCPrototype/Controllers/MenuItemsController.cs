@@ -91,14 +91,12 @@ public class MenuItemsController : Controller
         if (item == null)
             return NotFound();
 
-        // Update fields
         item.Name = model.Name;
         item.Price = model.Price;
         item.Category = model.Category;
         item.IsVegan = model.IsVegan;
         item.IsActive = model.IsActive;
 
-        // Image upload (optional)
         if (image != null && image.Length > 0)
         {
             var fileName = $"{Guid.NewGuid()}{Path.GetExtension(image.FileName)}";

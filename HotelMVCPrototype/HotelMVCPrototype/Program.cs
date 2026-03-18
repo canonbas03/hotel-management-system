@@ -14,7 +14,6 @@ namespace HotelMVCPrototype
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(connectionString));
@@ -27,7 +26,7 @@ namespace HotelMVCPrototype
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders().AddDefaultUI();
 
-            builder.Services.AddRazorPages(); // Required for Identity UI
+            builder.Services.AddRazorPages();
             builder.Services.AddSignalR();
 
             builder.Services.AddScoped<IRoomStatisticsService, RoomStatisticsService>();
@@ -48,7 +47,6 @@ namespace HotelMVCPrototype
             app.UseSession();
 
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseMigrationsEndPoint();

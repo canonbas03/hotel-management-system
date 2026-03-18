@@ -23,7 +23,6 @@ namespace HotelMVCPrototype.Controllers
         }
 
 
-        // GET: Reception Dashboard
         public async Task<IActionResult> Index(int floor = 1)
         {
             var rooms = await _context.Rooms
@@ -57,10 +56,10 @@ namespace HotelMVCPrototype.Controllers
                     HeightPercent = r.MapHeightPercent,
                     StatusColor = r.Status switch
                     {
-                        RoomStatus.Available => "#164E63",   // Forest Green
-                        RoomStatus.Occupied => "#86A789",    // Sage
-                        RoomStatus.Cleaning => "#e8c53a",    // Soft Mint
-                        RoomStatus.Maintenance => "#DC3545", // Red
+                        RoomStatus.Available => "#164E63",   
+                        RoomStatus.Occupied => "#86A789",    
+                        RoomStatus.Cleaning => "#e8c53a",    
+                        RoomStatus.Maintenance => "#DC3545", 
                         _ => "#FFFFFF"
                     },
                     IsDND = r.IsDND,
@@ -73,7 +72,6 @@ namespace HotelMVCPrototype.Controllers
             {
                 Rooms = rooms,
                 RoomStatistics = await _statsService.GetStatisticsAsync(),
-                //NewRequests = requests,
                 RoomMap = roomMap,
                 CurrentFloor = floor
             };
@@ -81,7 +79,6 @@ namespace HotelMVCPrototype.Controllers
             return View(vm);
         }
 
-        // Quick Check-In (GET)
         public async Task<IActionResult> CheckIn(int roomId)
         {
             var room = await _context.Rooms.FindAsync(roomId);
@@ -97,7 +94,6 @@ namespace HotelMVCPrototype.Controllers
             return View(assignment);
         }
 
-        // Quick Check-In (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CheckIn(GuestAssignment assignment)
@@ -135,9 +131,7 @@ namespace HotelMVCPrototype.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // Optional: Check-Out action (you already have this)
 
-        // GET: Reception/RoomDetails/5
         public async Task<IActionResult> RoomDetails(int id)
         {
             var room = await _context.Rooms
@@ -178,9 +172,6 @@ namespace HotelMVCPrototype.Controllers
 
             stay.Room.Status = RoomStatus.Cleaning;
 
-            //_context.GuestAssignments.Update(stay);
-            //_context.Rooms.Update(stay.Room);
-
             await _context.SaveChangesAsync();
 
             return RedirectToAction("RoomDetails", new { id = stay.RoomId });
@@ -197,14 +188,12 @@ namespace HotelMVCPrototype.Controllers
 
             if (guest == null) return NotFound();
 
-            // mark this guest departed
             if (guest.IsActive)
             {
                 guest.IsActive = false;
                 guest.DepartedAt = DateTime.Now;
             }
 
-            // load assignment with all guests to decide if room should be checked out
             var stay = await _context.GuestAssignments
                 .Include(ga => ga.Room)
                 .Include(ga => ga.Guests)
@@ -212,7 +201,6 @@ namespace HotelMVCPrototype.Controllers
 
             if (stay != null)
             {
-                // if no active guests remain -> end stay + set room cleaning
                 if (stay.Guests.All(g => !g.IsActive))
                 {
                     stay.IsActive = false;

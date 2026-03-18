@@ -11,7 +11,6 @@ namespace HotelMVCPrototype.Models
 
         public IssueCategory Category { get; set; }
 
-        // store the chosen dropdown option as a stable key
         public string TypeKey { get; set; } = "";
 
         public string? Description { get; set; }
@@ -20,7 +19,6 @@ namespace HotelMVCPrototype.Models
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime? ResolvedAt { get; set; }
 
-        // optional but useful for “who reported it”
         public string? ReportedByUserId { get; set; }
         public string? ReportedByUserName { get; set; }
     }

@@ -17,7 +17,6 @@ public class GuestRequestsController : Controller
         _hub = hub;
     }
 
-    // STEP 1: Show request form
     public async Task<IActionResult> Index(int roomId)
     {
         ViewBag.RoomId = roomId;
@@ -30,7 +29,6 @@ public class GuestRequestsController : Controller
         return View(items);
     }
 
-    // STEP 2: Submit request
     [HttpPost]
     public async Task<IActionResult> PlaceRequest(
         int roomId,
@@ -39,12 +37,10 @@ public class GuestRequestsController : Controller
         if (items == null || !items.Any(i => i.Value > 0))
             return BadRequest("No items selected.");
 
-        // Load all request items from DB
         var dbItems = await _context.RequestItems
             .Where(i => items.Keys.Contains(i.Id))
             .ToListAsync();
 
-        // Validate quantities
         foreach (var dbItem in dbItems)
         {
             int requestedQty = items[dbItem.Id];
@@ -77,10 +73,8 @@ public class GuestRequestsController : Controller
         _context.ServiceRequests.Add(request);
         await _context.SaveChangesAsync();
 
-        //await _hub.Clients.All.SendAsync("NewRequest");
         await _hub.Clients.All.SendAsync("NewRequest", roomId);
 
-        // ✅ Redirect to its OWN ThankYou page
         return RedirectToAction(nameof(ThankYou), new { id = request.Id });
     }
 

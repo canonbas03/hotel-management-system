@@ -18,7 +18,6 @@ namespace HotelMVCPrototype.Data
         {
             base.OnModelCreating(builder);
 
-            // Unique room number
             builder.Entity<Room>()
                    .HasIndex(r => r.Number)
                    .IsUnique();

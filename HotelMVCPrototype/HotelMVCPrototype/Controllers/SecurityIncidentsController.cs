@@ -19,7 +19,6 @@ public class SecurityIncidentsController : Controller
         _userManager = userManager;
     }
 
-    // GET: /SecurityIncidents/Create
     public async Task<IActionResult> Create(int? roomId)
     {
         var model = new CreateSecurityIncidentViewModel
@@ -44,7 +43,6 @@ public class SecurityIncidentsController : Controller
     }
 
 
-    // POST: /SecurityIncidents/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Create(CreateSecurityIncidentViewModel model)

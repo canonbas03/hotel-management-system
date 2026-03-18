@@ -25,7 +25,7 @@ public class IssueReportsController : Controller
         var vm = new CreateIssueReportViewModel
         {
             RoomId = roomId,
-            Category = IssueCategory.Security // default
+            Category = IssueCategory.Security
         };
 
         if (roomId.HasValue)
@@ -58,7 +58,6 @@ public class IssueReportsController : Controller
     {
         if (!ModelState.IsValid)
         {
-            // reload rooms if needed
             if (!vm.RoomId.HasValue)
             {
                 vm.Rooms = await _context.Rooms
@@ -75,11 +74,6 @@ public class IssueReportsController : Controller
 
         var user = await _userManager.GetUserAsync(User);
 
-        // ✅ Map the unified UI to the right DB table
-        // Keep it simple for now: create SecurityIncident for "Security",
-        // create MaintenanceTicket for "Maintenance",
-        // create HousekeepingTicket for "Housekeeping".
-        // If you don't have those entities yet, you can start with SecurityIncident only.
 
         if (vm.Category == IssueCategory.Security)
         {
@@ -88,7 +82,7 @@ public class IssueReportsController : Controller
                 RoomId = vm.RoomId,
                 Description = vm.Description,
                 ReportedByUserId = user!.Id,
-                Type = Enum.Parse<SecurityIncidentType>(vm.TypeKey) // keys match enum names
+                Type = Enum.Parse<SecurityIncidentType>(vm.TypeKey) 
             };
 
             _context.SecurityIncidents.Add(incident);
@@ -100,10 +94,7 @@ public class IssueReportsController : Controller
             room.Status = RoomStatus.Maintenance;
 
             await _context.SaveChangesAsync();
-            // TODO: create Maintenance entity
-            // var ticket = new MaintenanceTicket { ... Type = Enum.Parse<MaintenanceType>(vm.TypeKey) ... };
-            // _context.MaintenanceTickets.Add(ticket);
-            // await _context.SaveChangesAsync();
+      
         }
         else if (vm.Category == IssueCategory.Housekeeping)
         {

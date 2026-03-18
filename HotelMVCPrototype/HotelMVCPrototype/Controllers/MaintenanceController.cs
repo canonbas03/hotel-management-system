@@ -103,7 +103,6 @@ namespace HotelMVCPrototype.Controllers
         }
 
 
-        // Optional: keep MarkDone for compatibility (calls Resolve)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public Task<IActionResult> MarkDone(int issueId) => Resolve(issueId);

@@ -25,7 +25,6 @@ namespace HotelMVCPrototype.Controllers
         }
 
 
-        // GET: Housekeeping
         public async Task<IActionResult> Index(int floor = 1)
         {
 
@@ -40,11 +39,6 @@ namespace HotelMVCPrototype.Controllers
        .ToList();
 
 
-    //        var cleaningRooms = await _context.Rooms
-    //.Where(r => r.Floor == floor && (
-    //    r.Status == RoomStatus.Cleaning || r.NeedsDailyCleaning
-    //))
-    //.ToListAsync();
 
             var roomMap = floorRoomsNeedingCleaning
                 .Select(r => new RoomMapViewModel
@@ -62,7 +56,6 @@ namespace HotelMVCPrototype.Controllers
 
             var currentUser = User.Identity?.Name;
 
-            // Fetch today's cleanings for this housekeeper
             var today = DateTime.Now.Date;
             var todaysCleanings = await _context.CleaningLogs
                 .Include(l => l.Room)
@@ -101,7 +94,6 @@ namespace HotelMVCPrototype.Controllers
 
 
 
-        // POST: Mark Cleaned
         [HttpPost]
         public async Task<IActionResult> MarkCleaned(int id)
         {
@@ -128,7 +120,7 @@ namespace HotelMVCPrototype.Controllers
             var log = new CleaningLog
             {
                 RoomId = room.Id,
-                CreatedAt = DateTime.Now,      // current server time
+                CreatedAt = DateTime.Now,   
                 Housekeeper = User?.Identity?.Name,
                 Notes = null
             };
@@ -150,16 +142,13 @@ namespace HotelMVCPrototype.Controllers
 
             await _context.SaveChangesAsync();
 
-            //// Optionally notify SignalR clients
-            //await _hub.Clients.All.SendAsync("CleaningLogged", room.Id);
-
             await _hub.Clients.All.SendAsync("RoomCleaned", room.Id);
             await _hub.Clients.All.SendAsync("CleaningLogged", log.Id);
             await _hub.Clients.All.SendAsync("RoomStatusChanged", new
             {
                 RoomId = room.Id,
                 Color = "#164E63",
-                Stats = await _statsService.GetStatisticsAsync() // send updated stats
+                Stats = await _statsService.GetStatisticsAsync() 
             });
 
 

@@ -13,7 +13,7 @@ namespace HotelMVCPrototype.Models
         public Room? Room { get; set; }
 
         [Required]
-        public DateTime CreatedAt { get; set; } = DateTime.Now; // local server time
+        public DateTime CreatedAt { get; set; } = DateTime.Now;
 
         public string? Housekeeper { get; set; }
         public string? Notes { get; set; }

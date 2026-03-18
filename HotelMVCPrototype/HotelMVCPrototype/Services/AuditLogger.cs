@@ -30,7 +30,6 @@
 
                 UserId = ctx?.User?.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value,
                 UserName = ctx?.User?.Identity?.Name,
-                // Role snapshot optional (simple version):
                 Role = null,
 
                 IpAddress = ctx?.Connection?.RemoteIpAddress?.ToString(),

@@ -12,5 +12,5 @@ public enum Nationality
     France,
     [Display(Name = "🇯🇵 Japan")]
     Japan
-    // Add more as needed
+    
 }
