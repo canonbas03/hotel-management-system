@@ -18,7 +18,6 @@ public class BarController : Controller
         _audit = audit;
     }
 
-    // Show all new orders
     public async Task<IActionResult> Index()
     {
         var orders = await _context.Orders
@@ -26,13 +25,12 @@ public class BarController : Controller
              .Include(o => o.Items)
              .ThenInclude(i => i.MenuItem)
              .Where(o => o.Status == OrderStatus.New)
-             .OrderBy(o => o.CreatedAt) // <-- FIFO queue
+             .OrderBy(o => o.CreatedAt)
              .ToListAsync();
 
         return View(orders);
     }
 
-    // Mark an order as completed
     [HttpPost]
     public async Task<IActionResult> Complete(int orderId)
     {
