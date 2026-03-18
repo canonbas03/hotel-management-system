@@ -2,11 +2,11 @@
 .bg-primary-action {
     background-color: #164E63 !important;
 }
-/* Forest Green */
+
 .bg-secondary {
     background-color: #86A789 !important;
 }
-/* Sage */
+
 .bg-surface {
     background-color: #FFFFFF !important;
 }
@@ -30,12 +30,12 @@
 
 /* Cards with palette background and shadow */
 .card {
-    background-color: #FFFFFF; /* default surface */
+    background-color: #FFFFFF; 
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     border-radius: 0.5rem;
 }
 
-/* Buttons using palette */
+
 .btn-primary {
     background-color: #164E63;
     border-color: #164E63;
@@ -59,7 +59,6 @@
     }
 
 
-/* Base font size */
 html {
     font-size: 14px;
 }
@@ -70,104 +69,104 @@ html {
     }
 }
 
-/* Body */
+
 body {
     margin-bottom: 60px;
-    background-color: #F0F4F2; /* Soft Mint background */
-    color: #0F172A; /* Dark Moss text */
+    background-color: #F0F4F2;
+    color: #0F172A;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Buttons */
+
 .btn {
     border-radius: 0.25rem;
     font-weight: 600;
 }
 
-/* Primary / Action Buttons */
+
 .btn-primary {
-    background-color: #164E63; /* Forest Green */
+    background-color: #164E63; 
     border-color: #164E63;
     color: #FFFFFF;
 }
 
     .btn-primary:hover,
     .btn-primary:focus {
-        background-color: #0F3B4D; /* slightly darker forest green */
+        background-color: #0F3B4D;
         border-color: #0F3B4D;
         color: #FFFFFF;
     }
 
-/* Secondary / Sage buttons */
+
 .btn-secondary {
-    background-color: #86A789; /* Sage */
+    background-color: #86A789;
     border-color: #86A789;
     color: #FFFFFF;
 }
 
     .btn-secondary:hover,
     .btn-secondary:focus {
-        background-color: #729276; /* slightly darker sage */
+        background-color: #729276;
         border-color: #729276;
         color: #FFFFFF;
     }
 
-/* Focus outlines */
+
 .btn:focus,
 .btn:active:focus,
 .btn-link.nav-link:focus,
 .form-control:focus,
 .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem #FFFFFF, 0 0 0 0.25rem #164E63; /* Forest Green focus ring */
+    box-shadow: 0 0 0 0.1rem #FFFFFF, 0 0 0 0.25rem #164E63;
     outline: none;
 }
 
 /* Inputs */
 .form-control {
-    border: 1px solid #86A789; /* Sage border */
+    border: 1px solid #86A789; 
     border-radius: 0.25rem;
 }
 
-/* Cards / Surfaces */
+
 .card {
-    background-color: #FFFFFF; /* White cards */
+    background-color: #FFFFFF;
     border-radius: 0.5rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-    color: #0F172A; /* Dark Moss */
+    color: #0F172A;
 }
 
-/* Text helpers */
+
 .text-primary {
-    color: #164E63 !important; /* Forest Green */
+    color: #164E63 !important; 
 }
 
 .text-secondary {
-    color: #86A789 !important; /* Sage */
+    color: #86A789 !important; 
 }
 
 .text-muted {
-    color: #6B7280 !important; /* muted gray for less important text */
+    color: #6B7280 !important;
 }
 
-/* Layout helpers */
+
 .container {
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
 
 .row.bg-surface {
-    background-color: #F0F4F2; /* Soft Mint row background */
+    background-color: #F0F4F2;
     padding: 1rem;
     border-radius: 10px;
 }
 
-/* Table adjustments */
+
 .table th {
-    background-color: #86A789; /* Sage header */
+    background-color: #86A789;
     color: #FFFFFF;
 }
 
@@ -175,7 +174,7 @@ h1, h2, h3, h4, h5, h6 {
     vertical-align: middle;
 }
 
-/* Rooms hover and clicks*/
+
 .room {
     cursor: pointer;
     transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
@@ -184,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
     .room:hover {
         transform: scale(1.05);
         opacity: 0.9;
-        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35); /* Dark Moss */
+        box-shadow: 0 8px 20px rgba(15, 23, 42, 0.35);
         z-index: 10;
     }
 
@@ -192,14 +191,7 @@ h1, h2, h3, h4, h5, h6 {
         transform: scale(0.98);
     }
 
-    /*.dnd-badge {
-    position: absolute;
-    top: 2px;*/        /* small offset from top */
-    /*right: 2px;*/      /* small offset from right */
-    /*opacity: 1;*/      /* fully visible */
-    /*font-size: 0.7rem;*/  /* make it smaller if needed */
-    /*z-index: 20;
-}*/
+  
 
 .room-badges {
     position: absolute;
@@ -220,7 +212,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .guest-header {
     background: #164E63;
-   /* border-bottom: 1px solid #e5e7eb;*/
 }
 
 .guest-logo {
@@ -238,16 +229,16 @@ h1, h2, h3, h4, h5, h6 {
 
 .room-text {
     font-size: 32px;
-    font-weight: 500; /* medium */
+    font-weight: 500;
     color: #2f2f2f;
 }
     .room-title .ornament {
-        height: 23px; /* adjust to taste */
+        height: 23px;
         opacity: 0.7;
     }
 
         .room-title .ornament.right {
-            transform: scaleX(-1); /* mirror horizontally */
+            transform: scaleX(-1);
         }
 
 
@@ -260,7 +251,6 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     color: inherit;
     width: 383px;
-    /*height: 267px;*/
     margin: auto;
     margin-bottom: 33px;
 }
@@ -268,8 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 .card-inner {
     background: #ffffff;
     border-radius: 10px;
-/*    padding: 7px;
-*/    box-shadow: 0px 5px 7px rgba(0,0,0,0.20);
+    box-shadow: 0px 5px 7px rgba(0,0,0,0.20);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     padding: 7px 7px 15px;
 }
@@ -279,14 +268,14 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 10px 15px rgba(0,0,0,0.18);
 }
 
-/* Image with equal padding on top/left/right */
+
 .card-image {
     width: 100%;
     border-radius: 10px;
     display: block;
 }
 
-/* Text at bottom */
+
 .card-text {
     margin-top: 5px;
     text-align: center;
@@ -299,7 +288,7 @@ h1, h2, h3, h4, h5, h6 {
 .action-cards {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly; /* vertical centering */
+    justify-content: space-evenly;
     align-items: center;
     margin-bottom: 40px;
 }
@@ -307,7 +296,8 @@ h1, h2, h3, h4, h5, h6 {
     text-decoration: none;
     color: inherit;
 }
-/* SHARED CARD STYLE */
+
+
 .dnd-card,
 .report-card {
     width: 141px;
@@ -322,7 +312,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-/* Individual colors */
+
 .dnd-card {
     background: #FFC107;
 }
@@ -350,52 +340,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 @media (min-width: 992px) {
 
-    /* Smaller top logo bar */
+    
     .guest-header {
-        padding: 8px 0;        /* less height */
+        padding: 8px 0;  
     }
 
     .guest-logo {
-        height: 64px;          /* smaller logo on desktop */
-        max-width: 520px;      /* prevents huge logo */
+        height: 64px;      
+        max-width: 520px;      
     }
 
     main {
         padding: 24px 16px;
     }
 
-     /*Put the 2 main cards side-by-side */
-    /*.card-collection {
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }*/
-
-/*     Action cards closer and side-by-side 
-*/    /*.action-cards {
-        grid-template-columns: 1fr 1fr;  DND + Report in same row 
-        gap: 12px;
-        margin-top: 14px;
-    }*/
-
-/*     Optional: tighten title spacing 
-*/    /*.room-title {
-        margin: 8px auto 14px;
-        max-width: 980px;
-    }*/
-
-
-    /*.card-collection {
-        display: flex !important;
-        gap: 22px !important;
-        align-items: stretch;
-    }*/
-
-        /*.card-collection .room-card {
-            flex: 1 1 0;
-            min-width: 0;*/ /* prevents overflow pushing items down */
-        /*}*/
-
-    /* Action cards row: keep together with a normal gap */
+     
     .action-cards {
         display: flex !important;
         gap: 12px !important;
@@ -415,22 +374,13 @@ h1, h2, h3, h4, h5, h6 {
     }
 
         .card-collection .room-card {
-            width: auto; /* stop fixed width */
-            margin: 0; /* remove auto centering that can cause weirdness */
-            flex: 0 1 360px; /* each card ~360px and equal */
-            max-width: 380px; /* prevents huge cards on large screens */
+            width: auto;
+            margin: 0;
+            flex: 0 1 360px; 
+            max-width: 380px; 
         }
 
-    /*.card-inner {
-        height: 100%;*/ /* equal height */
-        /*display: flex;
-        flex-direction: column;
-    }*/
-
-    /*.card-image {
-        aspect-ratio: 4 / 3;  consistent image height 
-        object-fit: cover;
-    }*/
+   
 
     .card-text {
         margin-top: 10px;
@@ -439,7 +389,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-/* Make login partial readable on dark navbar */
+
 .navbar .navbar-text,
 .navbar .nav-link,
 .navbar a,
@@ -447,7 +397,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff !important;
 }
 
-/* Make logout button look like a nav link */
+
 .navbar .btn-link {
     color: #fff !important;
     text-decoration: none;
@@ -463,7 +413,7 @@ h1, h2, h3, h4, h5, h6 {
     transform-origin: left center;
 }
 
-/*Admin Dashboard*/
+
 .role-tile {
     width: 160px;
     height: 120px;
@@ -486,30 +436,26 @@ h1, h2, h3, h4, h5, h6 {
         color: #0F172A;
     }
 
-/* Pastel colors */
 .tile-reception {
-    background-color: #E0F2FE; /* soft blue */
+    background-color: #E0F2FE;
 }
 
 .tile-housekeeping {
-    background-color: #DCFCE7; /* mint green */
+    background-color: #DCFCE7; 
 }
 
 .tile-bar {
-    background-color: #FEF3C7; /* warm amber */
+    background-color: #FEF3C7;
 }
 
 .tile-maintenance {
-    background-color: #EDE9FE; /* lavender */
+    background-color: #EDE9FE; 
 }
 
 .tile-security {
-    background-color: #FEE2E2; /* soft red */
+    background-color: #FEE2E2;
 }
 
-
-/*Dropdown*/
-/* Fix navbar dropdown visibility */
 .navbar .dropdown-menu {
     background-color: #164E63;
 }
@@ -525,7 +471,7 @@ h1, h2, h3, h4, h5, h6 {
         color: #6E8C73;
     }
 
-/* Make the Mode label feel like part of the navbar */
+
 .navbar .dropdown-toggle {
     cursor: pointer;
 }
