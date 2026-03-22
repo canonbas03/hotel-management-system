@@ -158,11 +158,9 @@
         const room = document.getElementById(`room-${data.roomId}`);
         if (!room) return;
 
-        // Update room color
         room.style.backgroundColor = data.color;
         room.style.borderColor = data.color;
 
-        // Update stats from the payload
         const stats = data.stats;
         if (stats) {
             updateStat("stat-available", stats.available);
@@ -172,7 +170,6 @@
         }
     });
 
-    // helper to update a stat element
     function updateStat(id, value) {
         const el = document.getElementById(id);
         if (!el) return;
@@ -201,7 +198,6 @@
 </script>
 <script>
     connection.on("NewRequest", async (roomId) => {
-        // 🔊 sound
         const sound = document.getElementById("newRequestSound");
         if (sound) {
             try {
@@ -212,13 +208,11 @@
             }
         }
 
-        // 🔁 reload right-side requests card
         const res = await fetch('/ReceptionRequests/PartialRequests');
         const html = await res.text();
         const container = document.getElementById("requests-container");
         if (container) container.innerHTML = html;
 
-        // 🔔 add badge on room (if roomId provided)
         if (roomId) {
             const room = document.getElementById(`room-${roomId}`);
             if (room) {
